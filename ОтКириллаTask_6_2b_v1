@@ -1,0 +1,27 @@
+=============================ОтКириллаTask_6_2b_v1 ниже код работает как надо================================
+# -*- coding: utf-8 -*-
+ip = input("введите ip-адрес: ")
+ip_add = ip.split(".")
+# print(ip_add)
+# print(len(ip_add))
+if len(ip_add) != 4:
+    print('неправильный IP-адрес-3')
+    exit(1)
+for i in ip_add:
+    if i.isdigit() == False:
+       print('неправильный IP-адрес-4')
+       exit(1)
+    elif not 0 <= int(i) <= 255:
+       print('неправильный IP-адрес-4')
+       exit(1)
+
+if ip == "255.255.255.255":
+    print("local broadcast")
+elif ip == "0.0.0.0":
+    print("unassigned")
+elif 1 <= int(ip_add[0]) <= 223:
+    print("unicast")
+elif 224 <= int(ip_add[0]) <= 239:
+    print("multicast")
+else:
+    print("unused")
